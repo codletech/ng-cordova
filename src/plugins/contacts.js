@@ -37,7 +37,7 @@ angular.module('ngCordova.plugins.contacts', [])
 
       find: function (options) {
         var q = $q.defer();
-        var fields = options.fields || ['id', 'displayName'];
+        var fields = (options && options.fields) || ['id', 'displayName'];
         delete options.fields;
 
         navigator.contacts.find(fields, function (results) {
